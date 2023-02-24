@@ -10,11 +10,11 @@ export class UpdateUserCommand implements IRequest<UpdateUserResponseType> {
 
 	@IsOptional()
 	@ApiProperty()
-	public id:UniqueEntityID
+	public id:string
 
-	// @IsOptional()
-	// @ApiProperty()
-	// public firstName: string
+	@IsOptional()
+	@ApiProperty()
+	public firstName: string
 
 	public constructor(init?: Partial<UpdateUserCommand>) {
 		Object.assign(this, init)

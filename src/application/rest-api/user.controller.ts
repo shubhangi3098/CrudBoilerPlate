@@ -8,7 +8,7 @@ import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { Put } from '@nestjs/common/decorators/http/request-mapping.decorator';
 import { UpdateUserCommand } from '../use-cases/user/commands/updateUser/update-user.cmd';
 import { UpdateUserResponseType } from '../use-cases/user/commands/updateUser/update-user.response.type';
-import { Param } from '@nestjs/common/decorators/http/route-params.decorator';
+// import { Param } from '@nestjs/common/decorators/http/route-params.decorator';
 
 @ApiTags('user')
 @Controller('user')
