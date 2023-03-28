@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Result, UniqueEntityID } from '@softobiz-df/shared-lib';
+import { eDataSource, Result, UniqueEntityID } from '@softobiz-df/shared-lib';
 import { EntityManager, IsNull, Not } from 'typeorm'
 import { User } from 'src/domain/user/user';
 import { IUserRepository } from '../irepositories/iuser.repository';
@@ -39,9 +39,15 @@ export class UserSqlRepository implements IUserRepository {
 	exists(input: User): Promise<Result<boolean>> {
 		throw new Error('Method not implemented.')
 	}
-	remove(input: UniqueEntityID): Promise<Result<void>> {
-		throw new Error('Method not implemented.')
+
+	async remove(input: User): Promise<Result<User>> { 
+		const persistence = this._mapper.toPersistence(input)
+		await this._entityManager.transaction(async (em) => {
+			await em.remove(persistence)
+		})
+		return Result.ok(input)
 	}
+	
 	async findById(input: UniqueEntityID): Promise<Result<User>> {
 		const userEntity = await this.getById(input.toString())
 		if (userEntity) {
@@ -50,5 +56,6 @@ export class UserSqlRepository implements IUserRepository {
 			return Result.ok()
 		}
 	}
+
 
 }

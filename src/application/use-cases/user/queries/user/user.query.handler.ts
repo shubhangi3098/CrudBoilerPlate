@@ -23,7 +23,6 @@ export class GetUserQueryHandler implements IRequestHandler<GetUserQuery, GetUse
 			lastName: userValue.props.lastName,
 			email: userValue.props.email,
 
-
 		})
 		return Result.ok(userDto)
 	}

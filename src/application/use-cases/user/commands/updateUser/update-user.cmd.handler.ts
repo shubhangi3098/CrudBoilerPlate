@@ -29,8 +29,7 @@ export class UpdateUserCommandHandler implements IRequestHandler<UpdateUserComma
 		await this._userRepo.save(updateUserValue)
 		return Result.ok(new RecordIdModel({ id: updateUserValue.id.toString()}))
  
- 
-		
+ 	
 	}
 	
 	

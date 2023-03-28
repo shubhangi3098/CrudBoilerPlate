@@ -13,7 +13,7 @@ export class  UserSqlMapper implements IMapper {
 			{
 				firstName: raw.firstName,
 				lastName: raw.lastName,
-				email: raw.email,
+				email: raw.email
 				
 			},
 			new UniqueEntityID(raw.uuid),

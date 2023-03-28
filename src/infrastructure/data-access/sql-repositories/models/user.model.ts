@@ -20,6 +20,6 @@ export class UserModel extends BaseModel {
 	public lastName: string
 
 	@Column()
-	public email: string
+	public email: string	
 
 }
